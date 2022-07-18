@@ -33,7 +33,11 @@ public class AddressDeleteActionServlet extends HttpServlet {
 			 * 3.AddressService.deleteByNo()메쏘드실행
 			 * 4.클라이언트로 redirection 응답--> address_list.do 로 redirection
 			 */
-			
+			  request.setCharacterEncoding("UTF-8");
+		         String noStr = request.getParameter("no");
+		         AddressService addressService = new AddressService();
+		         int deleteRowCount = addressService.deleteByNo(Integer.parseInt(noStr));
+
 			/*
 			 요청바디
 			 요청바디
