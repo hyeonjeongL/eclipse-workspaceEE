@@ -33,8 +33,18 @@ public class AddressUpdateActionServlet extends HttpServlet {
 			 * 5.adress_detail.do 로
 			 * redirection
 			 */
+			request.setCharacterEncoding("UTF-8");
+			String noStr = request.getParameter("no");
+			String id = request.getParameter("id");
+			String name = request.getParameter("name");
+			String phone = request.getParameter("phone");
+			String address = request.getParameter("address");
+			Address updateAddress = new Address(Integer.parseInt(noStr), id, name, phone, address);
+			AddressService addressService = new AddressService();
+			int updateRowCount = addressService.updateByNo(updateAddress);
 			
-			response.sendRedirect("address_detail.do?no=1");
+			
+			response.sendRedirect("address_detail.do?no="+noStr);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
