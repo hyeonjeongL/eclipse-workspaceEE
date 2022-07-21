@@ -5,10 +5,57 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 	
+	function body_load_function(){
+		/*
+		DOM Tree생성 후 렌더링직전에 onload이벤트 발생
+		*/
+		console.log("body_load_function() 실행");
+		/*
+		<< form객체의 엘레멘트에 접근하는 방법 >>
+			- window.document.form객체의 name속성의 값. input엘레멘트의 name속성의 값
+			ex) window.document.loginForm.id
+		*/
+		
+		window.document.loginForm.id.value="guard";
+		window.document.loginForm.pass.value='1111';
+		/*
+		form focus를 아이디입력창에 위치
+		*/
+		//window.document.loginForm.id.select();
+		window.document.loginForm.id.focus();
+	}
+	function input_text_keydown_function(){
+		console.log("input_text_keydown_function()실행");
+		var idStr = window.document.loginForm.id.value;
+		console.log("입력값:"+idStr);
+	}
+	function input_password_focus_function(){
+		console.log("input_password_focus_function()실행");
+	}
+	function button_click_function(){
+		console.log("button_click_function()실행");
+	}
+	function login_form_submit_validation_function(){
+		var idStr = document.loginForm.id.value
+		var passStr = document.loginForm.pass.value;
+		if(idStr == null || idStr==''){
+			alert('아이디를 입력하세요');
+			document.loginForm.id.focus();
+			return false;
+		}
+		if(passStr == null || passStr==''){
+			alert('패스워드를 입력하세요');
+			document.loginForm.pass.focus();
+			return false;
+		}
+		return true;
+	}
+	
 </script>
 </head>
+<body onload="body_load_function();">
 <body>
-	<h1 onclick="console.log('h1 click');" onmouseover="console.log('h1 mouseover');" onmouseout="console.log('h1 onmouseout');" onmousewheel="console.log('h1 onmousewheel');">
+	<h1>
 	자바스크립트이벤트</h1>
 	<hr>
 	<pre>
@@ -19,9 +66,20 @@
 	 이벤트발생시에 대입한자바스트립트 코드가 실행된다.
 	</pre>
 	<h3>로그인</h3>	
-	<form  action="login_action.jsp" method="post" name="joinForm" style="border: 1px solid blue; width: 300px;padding: 30px">
-		아이디&nbsp;&nbsp; : <input type="text" name="id" placeholder="아이디" value="" onkeydown="input_text_keydown_function();"><br>
-		패쓰워드:            <input type="password" name="pass" placeholder="패쓰워드" onfocus="input_password_focus_function()"><br>
+	<form  action="login_action.jsp" 
+	method="post" 
+	name="loginForm"
+	onsubmit="return login_form_submit_validation_function();" 
+	style="border: 1px solid blue; width: 300px;padding: 30px">
+		아이디&nbsp;&nbsp; : <input type="text"  
+									name="id" 
+									placeholder="아이디" 
+									value="" 
+									onkeydown="input_text_keydown_function();"><br>
+		패쓰워드:            <input type="password" 
+									name="pass" 
+									placeholder="패쓰워드" 
+									onfocus="input_password_focus_function();"><br>
 		<!-- 
 		<< submit버튼의 이벤트처리 >>
 			- submit(image)버튼클릭시에는 form객체에 onsubmit이벤트가발생한다.
@@ -33,7 +91,7 @@
 	</form>
 	<br/>
 	<br/>
-	<input type="button" value="일반버튼" ><br>
+	<input type="button" value="일반버튼"  onclick="button_click_function();"><br>
 </body>
 </html>
 
