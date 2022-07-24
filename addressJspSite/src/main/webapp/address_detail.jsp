@@ -16,6 +16,7 @@
 
  request.setCharacterEncoding("UTF-8");
  String noStr = request.getParameter("no");
+ System.out.println(noStr);
 
 if(request.getParameter("no")==null || request.getParameter("no").equals("")){
 	response.sendRedirect("address_main.jsp");
@@ -38,7 +39,7 @@ Address address = addressService.selectByNo(Integer.parseInt(noStr));
 	<a href='address_main.jsp'>[메인]</a>
 	<a href='address_insert_form.jsp'>[주소록쓰기폼]</a>
 	<a href='address_list.jsp'>[주소록리스트]</a>
-	<a href='address_update_form.jsp?no=1'>[<%=address.getName() %>님 주소록수정폼]</a>
+	<a href='address_update_form.jsp?no=<%=address.getNo()%>'>[<%=address.getName() %>님 주소록수정폼]</a>
 	<a href='address_delete_action.jsp?no=<%=address.getNo()%>'><%=address.getName()%>님삭제[GET]</a>
 
 	<form action='address_delete_action.jsp' method='post' style='display:inline;'>

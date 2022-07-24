@@ -1,8 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" 
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <hr width="800">
 <p align="center">
 	<b><font size="3">Copyright (</font>c<font size="2">)..By <font
-			color="#0000ff">Limhyeonjeong.[임현정]]</font> All rights reserved.
+			color="#0000ff">LimHyeonJeong.[임현정]</font> All rights reserved.
 	</font></b>
 </p>

@@ -7,7 +7,7 @@ import java.sql.DriverManager;
  */
 public class DataSource {
 	public DataSource() {
-		System.out.println("3.DataSource객체생성:"+this);
+		//System.out.println("3.DataSource객체생성:"+this);
 	}
 	public Connection getConnection() throws Exception{
 		/*******************************************/

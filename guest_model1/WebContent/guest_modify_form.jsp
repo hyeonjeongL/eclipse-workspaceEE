@@ -1,4 +1,5 @@
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -7,21 +8,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 
-
-
-
-
 <link rel="stylesheet"
 	href="css/styles.css">
 <link rel="stylesheet"
 	href="css/guest.css">
-
-
-
-
-
-
-<script	src="js/guest.js"></script>
+<script type="text/javascript" src="js/guest.js"></script>
 </head>
 <body bgcolor=#FFFFFF text=#000000 leftmargin=0 topmargin=0
 	marginwidth=0 marginheight=0>
@@ -30,10 +21,7 @@
 		<!-- header start -->
 		<div id="header">
 			<!-- include_common_top.jsp start-->
-			
-<h1>
-	<a href="">WEB SAMPLE SITE</a>
-</h1>
+			<jsp:include page="include_common_top.jsp"/>
 
 			<!-- include_common_top.jsp end-->
 		</div>
@@ -41,15 +29,7 @@
 		<!-- navigation start-->
 		<div id="navigation">
 			<!-- include_common_left.jsp start-->
-			
-<p>
-	<strong>메 뉴</strong>
-</p>
-<ul>
-	<li><a href="guest_main.jsp">방명록홈</a></li>
-	<li><a href="guest_list.jsp">방명록리스트</a></li>
-	<li><a href="guest_write_form.jsp">방명록쓰기폼</a></li>
-</ul>
+			<jsp:include page="include_common_left.jsp"/>
 
 			<!-- include_common_left.jsp end-->
 		</div>
@@ -122,9 +102,10 @@
 
 				<table width=590 border=0 cellpadding=0 cellspacing=0>
 					<tr>
-						<td align=center><input type="button" value="수정"
-							onClick="guestModify()"> &nbsp; <input type="button"
-							value="목록" onClick="guestList()"></td>
+						<td align=center>
+						<input type="button" value="수정" onClick="guestModify()"> &nbsp; 
+						<input type="button" value="목록" onClick="guestList()">
+						</td>
 					</tr>
 				</table></td>
 		</tr>
@@ -136,9 +117,8 @@
 		<!-- footer start-->
 		<div id="footer">
 			<!-- include_common_bottom.jsp start-->
-			
-	<p align="center">Copyright (&copy;) By Kimkyoungho.[김경호] All
-		rights reserved.</p>
+			<jsp:include page="include_common_bottom.jsp"/>
+
 
 			<!-- include_common_bottom.jsp end-->
 		</div>
