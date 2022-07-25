@@ -58,12 +58,12 @@ public class GuestDao {
 //			
 //			guest = new Guest(no, name, date, email, homepage, title, content);
 			
-			guest = new Guest(rs.getInt("guest.no"),
+			guest = new Guest(rs.getInt("guest_no"),
 							  rs.getString("guest_name"),
 							  rs.getString("guest_date"),
 							  rs.getString("guest_email"),
 							  rs.getString("guest_homepage"),
-							  rs.getString("huest_title"),
+							  rs.getString("guest_title"),
 							  rs.getString("guest_content"));
 		}
 		
