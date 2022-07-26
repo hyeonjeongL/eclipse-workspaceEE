@@ -39,12 +39,16 @@ Address address = addressService.selectByNo(Integer.parseInt(noStr));
 	<a href='address_main.jsp'>[메인]</a>
 	<a href='address_insert_form.jsp'>[주소록쓰기폼]</a>
 	<a href='address_list.jsp'>[주소록리스트]</a>
-	<a href='address_update_form.jsp?no=<%=address.getNo()%>'>[<%=address.getName() %>님 주소록수정폼]</a>
-	<!--  <a href='address_delete_action.jsp?no=<%=address.getNo()%>'><%=address.getName()%>님삭제[GET]</a>
-	-->
+	<%-- <a href='address_update_form.jsp?no=<%=address.getNo()%>'>[<%=address.getName() %>님 주소록수정폼]</a> --%>
+	<form action='address_update_form.jsp' method='post' style='display:inline;'>
+		<input type='hidden' name='no' value='<%=address.getNo()%>'>
+		<input type="submit" value="<%=address.getName()%>주소록 수정폼 [POST]">
+	</form>
+	<%--  <a href='address_delete_action.jsp?no=<%=address.getNo()%>'><%=address.getName()%>님삭제[GET]</a>
+	--%>
 	<form action='address_delete_action.jsp' method='post' style='display:inline;'>
 		<input type='hidden' name='no' value='<%=address.getNo()%>'>
-		<input type='submit' value='<%=address.getName() %>님삭제[POST]'>
+		<input type='submit' value='<%=address.getName() %>님 삭제[POST]'>
 	</form>
 </div>
 <p>

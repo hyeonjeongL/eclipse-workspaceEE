@@ -13,18 +13,17 @@
   2.AddressService객체생성 
   3.받은파라메타로 AddressService.selectByNo()메쏘드실행 
   4.반환받은 Address객체를 사용해서 클라이언트로 응답(수정폼 보여주기)
-  
  */
-if(request.getParameter("no")==null || request.getParameter("no").equals("")){
+ request.setCharacterEncoding("UTF-8");
+ String noStr = request.getParameter("no");
+
+if(request.getMethod().equalsIgnoreCase("GET")){
 	response.sendRedirect("address_main.jsp");
 	return;
 }
  
- request.setCharacterEncoding("UTF-8");
- String noStr = request.getParameter("no");
  AddressService addressService = new AddressService();
  Address address = addressService.selectByNo(Integer.parseInt(noStr));
- 
  
 %>    
 <!DOCTYPE html>
@@ -43,7 +42,7 @@ if(request.getParameter("no")==null || request.getParameter("no").equals("")){
 	</div>
 	<form method='post' action='address_update_action.jsp'>
 		번호---<input type='hidden' name='no' value='<%=address.getNo() %>' ><br>
-		아이디--<input type='text' name='id' value='<%=address.getId() %>'><br>
+		아이디--<input type='text' name='id' readonly="readonly" value='<%=address.getId() %>'><br>
 		이름----<input type='text' name='name' value='<%=address.getName() %>'><br>
 		전화번호<input type='text' name='phone' value='<%=address.getPhone() %>'><br>
 		주소----<input type='text' name='address' value='<%=address.getAddress() %>'><br><br>  
