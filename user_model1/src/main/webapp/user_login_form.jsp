@@ -3,11 +3,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-/************case1[redirected]***************/
+/****************case1 script****************/
 /********************************************/
 
-/************case2 script********************
-*********************************************/
+/************case2 forward********************/
+String msg1 =(String) request.getAttribute("msg1");
+if(msg1==null)msg1="";
+String msg2 =(String) request.getAttribute("msg2");
+if(msg2==null)msg2="";
+User fuser = (User)request.getAttribute("fuser");
+if(fuser==null)fuser= new User("","","","");
+/*********************************************/
 %>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -80,13 +86,13 @@
 											아이디</td>
 										<td width=490 align="left" bgcolor="ffffff"
 											style="padding-left: 10px"><input type="text"
-											style="width: 150" name="userId" value="">&nbsp;&nbsp;<font color="red"></font></td>
+											style="width: 150" name="userId" value="<%=fuser.getUserId()%>">&nbsp;&nbsp;<font color="red"><%=msg1 %></font></td>
 									</tr>
 									<tr>
 										<td width=100 align=center bgcolor="E6ECDE" height="22">비밀번호</td>
 										<td width=490 align="left" bgcolor="ffffff"
 											style="padding-left: 10px"><input type="password"
-											style="width: 150" name="password" value="">&nbsp;&nbsp;<font color="red"></font></td>
+											style="width: 150" name="password" value="<%=fuser.getPassword()%>">&nbsp;&nbsp;<font color="red"><%=msg2 %></font></td>
 									</tr>
 								</table>
 							</form> <br />

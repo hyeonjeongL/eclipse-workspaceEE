@@ -1,5 +1,19 @@
+<%@page import="com.itwill.shop.product.Product"%>
+<%@page import="java.util.List"%>
+<%@page import="com.itwill.shop.product.ProductService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%
+	request.setCharacterEncoding("UTF-8");
+	ProductService productService= new ProductService();
+	List<Product> productList = productService.selectAll(); 
+	
+	String p_name = request.getParameter("p_name");
+
+
+%>
+    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -49,100 +63,23 @@
 									cellspacing="1" bgcolor="BBBBBB">
 									
 									<!--상품시작 -->
-									
+									<% int count = 0;%>
 									<tr>
-									
-										<td align="center" width="25%"  bgcolor="ffffff"><a
-											href="product_detail.jsp?p_no=1"><img width="88px" height="65px"
-												src="image/bigle.png" border="0"></a><br />
-											<br /> <b>견종:비글</b><br> <font
-											color="#FF0000">가격:550,000원
-										</font></td>
-										
-									
-								   <!--상품 끝 -->
-								   
-									<!--상품시작 -->
-									
-										<td align="center" width="25%"  bgcolor="ffffff"><a
-											href="product_detail.jsp?p_no=2"><img width="88px" height="65px"
-												src="image/dalma.jpg" border="0"></a><br />
-											<br /> <b>견종:달마시안</b><br> <font
-											color="#FF0000">가격:500,000원
-										</font></td>
-										
-									
-								   <!--상품 끝 -->
-								   
-									<!--상품시작 -->
-									
-										<td align="center" width="25%"  bgcolor="ffffff"><a
-											href="product_detail.jsp?p_no=3"><img width="88px" height="65px"
-												src="image/pug.jpg" border="0"></a><br />
-											<br /> <b>견종:퍼그</b><br> <font
-											color="#FF0000">가격:400,000원
-										</font></td>
-								   <!--상품 끝 -->
-								   <!--상품시작 -->
-										<td align="center" width="25%"  bgcolor="ffffff"><a
-											href="product_detail.jsp?p_no=4"><img width="88px" height="65px"
-												src="image/pekiniz.png" border="0"></a><br />
-											<br /> <b>견종:페키니즈</b><br> <font
-											color="#FF0000">가격:450,000원
-										</font></td>
-									
-									</tr>
-										
-									
-								   <!--상품 끝 -->
-								   
-									<!--상품시작 -->
-									
+									<%for(Product product:productList){%>
+									<% count++;%>
+									<%if(count==5){ %>
 									<tr>
+									<%} %>
 									
 										<td align="center" width="25%"  bgcolor="ffffff"><a
-											href="product_detail.jsp?p_no=5"><img width="88px" height="65px"
-												src="image/pomeranian.jpg" border="0"></a><br />
-											<br /> <b>견종:포메라니안</b><br> <font
-											color="#FF0000">가격:800,000원
+											href="product_detail.jsp?p_no=<%=product.getP_no()%>"><img width="88px" height="65px"
+						
+												src="image/<%=product.getP_image() %>" border="0"></a><br />
+											<br /> <b>견종:<%=product.getP_name() %></b><br> <font
+											color="#FF0000">가격:<%=product.getP_price() %>
 										</font></td>
 										
-									
-								   <!--상품 끝 -->
-								   
-									<!--상품시작 -->
-									
-										<td align="center" width="25%"  bgcolor="ffffff"><a
-											href="product_detail.jsp?p_no=6"><img width="88px" height="65px"
-												src="image/shaipei.jpg" border="0"></a><br />
-											<br /> <b>견종:샤페이</b><br> <font
-											color="#FF0000">가격:700,000원
-										</font></td>
-										
-									
-								   <!--상품 끝 -->
-								   
-									<!--상품시작 -->
-									
-										<td align="center" width="25%"  bgcolor="ffffff"><a
-											href="product_detail.jsp?p_no=7"><img width="88px" height="65px"
-												src="image/dachshund.jpg" border="0"></a><br />
-											<br /> <b>견종:닥스훈트</b><br> <font
-											color="#FF0000">가격:800,000원
-										</font></td>
-										
-									
-								   <!--상품 끝 -->
-								   
-									<!--상품시작 -->
-									
-										<td align="center" width="25%"  bgcolor="ffffff"><a
-											href="product_detail.jsp?p_no=8"><img width="88px" height="65px"
-												src="image/samoyed.jpg" border="0"></a><br />
-											<br /> <b>견종:사모예드</b><br> <font
-											color="#FF0000">가격:800,000원
-										</font></td>
-									
+									<%} %>
 									</tr>
 										
 									
