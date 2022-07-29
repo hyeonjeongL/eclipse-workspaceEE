@@ -1,3 +1,4 @@
+<%@page import="java.util.List"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="com.itwill.shop.cart.CartItem"%>
 <%@page import="java.util.ArrayList"%>
@@ -7,7 +8,7 @@
 <%@include file="login_check.jspf"%>
 <%
 CartService cartService = new CartService();
-ArrayList<CartItem> cartList = cartService.getCartList(sUserId);
+List<CartItem> cartList = cartService.getCartList(sUserId);
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>

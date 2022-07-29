@@ -1,6 +1,7 @@
 package com.itwill.shop.cart;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class CartService {
 	private CartDao cartDao;
@@ -27,15 +28,10 @@ public class CartService {
 	/*
 	 * 카트보기
 	 */
-	public ArrayList<CartItem> getCartList(String sUserId) throws Exception{
+	public List<CartItem> getCartList(String sUserId) throws Exception{
 		return cartDao.getCartList(sUserId);
 	}
-	/*
-	 * 카트아이템1개보기
-	 */
-	public CartItem getCartItemByCartNo(int cart_no) throws Exception{
-		return cartDao.getCartItemByCartNo(cart_no);
-	}
+
 	
 	/*
 	 * 카트아이템1개삭제
