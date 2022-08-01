@@ -17,12 +17,12 @@ insert into product values(product_p_no_SEQ.nextval, '사모예드', 800000, 'sa
 
 /**********************cart insert************************/
 --로그인한 guard1님의 카트에 존재하지않는 제품을 카트에 담기
-insert into cart(cart_no, cart_qty,p_no) values(cart_cart_no_seq.nextval,2,1,'guard1');
-insert into cart(cart_no, cart_qty,p_no) values(cart_cart_no_seq.nextval,1,3,'guard1');
-insert into cart(cart_no, cart_qty,p_no) values(cart_cart_no_seq.nextval,1,1,'guard1');
+insert into cart(cart_no, cart_qty,p_no,userid) values(cart_cart_no_seq.nextval,2,1,'guard1');
+insert into cart(cart_no, cart_qty,p_no,userid) values(cart_cart_no_seq.nextval,1,3,'guard1');
+insert into cart(cart_no, cart_qty,p_no,userid) values(cart_cart_no_seq.nextval,1,7,'guard1');
 --로그인한 guard2님의 카트에 존재하지않는 제품을 카트에 담기
-insert into cart(cart_no, cart_qty, p_no) values(cart_cart_no_seq.nextval,1,2,'guard2');
-insert into cart(cart_no, cart_qty, p_no) values(cart_cart_no_seq.nextval,2,1,'guard2');
+insert into cart(cart_no, cart_qty, p_no,userid) values(cart_cart_no_seq.nextval,1,5,'guard2');
+insert into cart(cart_no, cart_qty, p_no,userid) values(cart_cart_no_seq.nextval,2,6,'guard2');
 
 
 
