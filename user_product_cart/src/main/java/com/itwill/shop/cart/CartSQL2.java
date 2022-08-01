@@ -10,7 +10,7 @@ public class CartSQL2 {
 	public static final String CART_DELETEALL
 	= "delete * from cart";
 	public static final String CART_SELECTALL
-	= "select * from cart";
+	= "select * from cart"; 
 	public static final String CART_SELECTBYNO
 	= "select * from cart where p_no=?";
 	
