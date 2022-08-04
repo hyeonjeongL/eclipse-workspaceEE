@@ -8,7 +8,7 @@
 
 /************case2 forward********************/
 String msg1 =(String) request.getAttribute("msg1");
-if(msg1==null)msg1="";
+if(msg1==null)msg1=""; 
 String msg2 =(String) request.getAttribute("msg2");
 if(msg2==null)msg2="";
 User fuser = (User)request.getAttribute("fuser");
