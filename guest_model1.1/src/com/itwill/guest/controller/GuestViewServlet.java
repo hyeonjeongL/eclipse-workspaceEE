@@ -35,22 +35,38 @@ public class GuestViewServlet extends HttpServlet {
 		try {
 		 String guest_noStr=request.getParameter("guest_no");
 		 if(guest_noStr==null ||guest_noStr.equals("")){
-			 response.sendRedirect("guest_main.do");
-			 return;
-		 }
+			// response.sendRedirect("guest_main.do");
+			// return;
+			 
+			 forwardPath="redirect:guest_main.do";
+		 } else {
 		 Guest guest=guestService.selectByNo(Integer.parseInt(guest_noStr));
 		 request.setAttribute("guest", guest);
-		 forwardPath="/WEB-INF/views/guest_view.jsp";
-		} catch (Exception e) {
+		 forwardPath="forward:/WEB-INF/views/guest_view.jsp";
+		} 
+		}catch (Exception e) {
 			e.printStackTrace();
-			 forwardPath="/WEB-INF/views/guest_error.jsp";
+			 forwardPath="forward:/WEB-INF/views/guest_error.jsp";
 		}
-		forwardPath="/WEB-INF/views/guest_view.jsp";
 		
-		
-		RequestDispatcher rd=
-				request.getRequestDispatcher(forwardPath);
-		rd.forward(request, response);
+		/********************** forward, redirect *********************/
+		/*
+		   forward --> forward : /WEB-INF/views/guest_xxx.jsp; 
+		   redirect --> redirect : guest_xxx.do
+		 */
+		String[] pathArray = forwardPath.split(":");
+		String forwardOrRedirect = pathArray[0];
+		String path=pathArray[1];
+		if(forwardOrRedirect.equals("redirect")) {
+			response.sendRedirect(path);
+		} else if(forwardOrRedirect.equals("forward")) {
+			RequestDispatcher rd = 
+					request.getRequestDispatcher(path);
+			rd.forward(request,response);
+		}else {
+			
+		}
+		/*************************************************************/
 		
 	}
 

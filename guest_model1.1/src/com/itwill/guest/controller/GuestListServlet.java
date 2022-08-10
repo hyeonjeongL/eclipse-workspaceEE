@@ -28,7 +28,6 @@ public class GuestListServlet extends HttpServlet {
 			throws ServletException, IOException {
 		String forwardPath = "";
 		try {
-			forwardPath = "/WEB-INF/views/guest_list.jsp";
 			/*
 			 * 0.요청객체encoding설정 
 			 * 1.파라메타받기 
@@ -38,15 +37,32 @@ public class GuestListServlet extends HttpServlet {
 			 */
 			List<Guest> guestList = guestService.selectAll();
 			request.setAttribute("guestList", guestList);
-			forwardPath = "/WEB-INF/views/guest_list.jsp";
+			forwardPath = "forward:/WEB-INF/views/guest_list.jsp";
 		} catch (Exception e) {
 			e.printStackTrace();
-			forwardPath = "/WEB-INF/views/guest_error.jsp";
+			forwardPath = "forward:/WEB-INF/views/guest_error.jsp";
 
 		}
 
-		RequestDispatcher rd = request.getRequestDispatcher(forwardPath);
-		rd.forward(request, response);
+		/********************** forward, redirect *********************/
+		/*
+		   forward --> forward : /WEB-INF/views/guest_xxx.jsp; 
+		   redirect --> redirect : guest_xxx.do
+		 */
+		String[] pathArray = forwardPath.split(":");
+		String forwardOrRedirect = pathArray[0];
+		String path=pathArray[1];
+		if(forwardOrRedirect.equals("redirect")) {
+			response.sendRedirect(path);
+		} else if(forwardOrRedirect.equals("forward")) {
+			RequestDispatcher rd = 
+					request.getRequestDispatcher(path);
+			rd.forward(request,response);
+		}else {
+			
+		}
+		/*************************************************************/
+
 	}
 
 }
