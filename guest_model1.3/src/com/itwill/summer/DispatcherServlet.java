@@ -31,13 +31,6 @@ import com.itwill.guest.controller.GuestMainController;
  */
 
 public class DispatcherServlet extends HttpServlet {
-	
-	private GuestService guestService;
-	
-	public DispatcherServlet() {
-		guestService=new GuestService();
-	}
-	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		this.processRequest(request, response);
 	}
