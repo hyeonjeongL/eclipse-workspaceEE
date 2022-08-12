@@ -34,7 +34,9 @@
 <br/>
 include
 <hr/>
+ 
 <jsp:include page="8-2.default_scope_request.jsp"></jsp:include>
+
 <hr/>
 include
 <a href='8-3.default_scope_page_session_application1.jsp'>8-3.default_scope_page_session_application1.jsp</a><br/>
