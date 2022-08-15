@@ -107,7 +107,7 @@ User fuser = (User) request.getAttribute("fuser");
 										<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left">
 											<input type="text" style="width: 150px" name="userId"
 											value="">&nbsp;&nbsp;<font color="red"></font>
-										</td>
+										</td> 
 									</tr>
 									<tr>
 										<td width=100 align=center bgcolor="E6ECDE" height="22">비밀번호</td>
