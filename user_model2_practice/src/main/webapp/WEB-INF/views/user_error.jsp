@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>행복을 주는 쇼핑세상, G마켓</title>
+<title>유저USER</title>
 <meta http-equiv='Content-Type' content='text/html; charset=euc-kr'>
 <link href='/challenge/neo_include/good2.css' rel='stylesheet'
 	type='text/css'>

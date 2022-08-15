@@ -49,10 +49,10 @@ public class UserWriteActionController implements Controller {
 				RequestDispatcher rd = request.getRequestDispatcher("user_write_form.do");
 				rd.forward(request, response);
 				 */
-				forwardPath="forward:/WEB-INF/views/user_wrtie_form.jsp";
+				forwardPath = "forward:/WEB-INF/views/user_wrtie_form.jsp";
 			} else if (result == 1) {
 				/* ##################회원가입성공################# */
-				//response.sendRedirect("user_login_form.do");
+				// response.sendRedirect("user_login_form.do");
 				forwardPath = "redirect:user_login_form.do";
 			}
 		} catch (Exception e) {

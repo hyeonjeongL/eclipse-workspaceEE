@@ -10,8 +10,8 @@ public class UserMainController implements Controller{
 
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
-		
-		return "";
+		HttpSession session = request.getSession();
+		return "forward:/WEB-INF/views/user_main.jsp";
 	}
 
 }

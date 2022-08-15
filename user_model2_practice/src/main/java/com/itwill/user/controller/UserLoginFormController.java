@@ -11,6 +11,8 @@ public class UserLoginFormController implements Controller{
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
 		
 		String forwardPath="";
+		
+		forwardPath = "forward:/WEB-INF/views/user_login_form.jsp";
 		return forwardPath;
 	}
 

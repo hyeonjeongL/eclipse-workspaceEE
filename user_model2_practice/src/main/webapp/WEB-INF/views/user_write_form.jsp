@@ -5,7 +5,11 @@
 /*****************************아이디중복됐을때*********************
 1.request기본 객체로부터 애트리뷰트 이름 msg,fuser 의 값뽑기
 2.request기본 객체로부터 뽑은애트리뷰트 객체 msg(String),fuser(User) 객체출력
-********************************************************************************************/	
+*****************************************************************/	
+String msg = (String) request.getAttribute("msg");
+User fuser = (User) request.getAttribute("fuser");
+
+
 %>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>

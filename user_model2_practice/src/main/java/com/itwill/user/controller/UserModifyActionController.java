@@ -9,12 +9,21 @@ import com.itwill.user.User;
 import com.itwill.user.UserService;
 
 public class UserModifyActionController implements Controller {
-	
+	private UserService userService;
+
+	public UserModifyActionController() throws Exception {
+		userService = new UserService();
+	}
 
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
 		String forwardPath = "";
-		
+		/************************ Login Check **************************/
+		String sUserId = (String) request.getSession().getAttribute("sUserId");
+		if (sUserId == null) {
+			forwardPath = "redirect:user_main.do";
+		}
+		/*************************************************************/
 		/*
 		0.login 여부체크
 		1.GET방식이면 redirect:user_main.do forwardPath반환
@@ -24,7 +33,22 @@ public class UserModifyActionController implements Controller {
 		5.성공: redirect:user_view.do forwardPath반환
 		  실패: forward:/WEB-INF/views/user_error.jsp  forwardPath반환
 		*/
-		
+		try {
+			if (request.getMethod().equalsIgnoreCase("GET")) {
+				forwardPath = "redirect:user_main.do";
+			} else {
+				String password = request.getParameter("password");
+				String name = request.getParameter("name");
+				String email = request.getParameter("email");
+				userService.update(new User(sUserId, password, name, email));
+				forwardPath = "redirect:user_view.do";
+
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			forwardPath = "forward:/WEB-INT/views/user_error.jsp";
+		}
+
 		return forwardPath;
 	}
 

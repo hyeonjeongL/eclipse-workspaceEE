@@ -10,7 +10,7 @@ public class UserWriteFormController implements Controller{
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		return "forward:/WEB-INF/views/uwer_write_form.jsp";
+		return "forward:/WEB-INF/views/user_write_form.jsp";
 	}
 	
 
