@@ -1,11 +1,12 @@
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="com.itwill.bean.User"%>
-
+<%@page import="com.itwill.util.NumberFormatter" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <%
-	String title="오늘은 수요일 날씨가 맑아요 기분이 상쾌하네요!";
+	String title="오늘은 목요일 날씨가 맑아요 기분이 상쾌하네요!";
 	request.setAttribute("title", title);
 	request.setAttribute("name","JAMES");
 	request.setAttribute("price",1234567);
@@ -24,17 +25,26 @@
 
 <ul>
 	<li>--JSTL에서제공하는 EL내에서사용가능한function(ㅠㅠㅠㅠ)---</li>
-	<li></li>
+	<li>${fn:substring(title,4,7)}</li>
+	<li>${fn:toLowerCase(name)}</li>
+	<li>${fn:toUpperCase(name)}</li>
 	
 	<li>-- 표준 EL 안에서는  EL객체(속성객체)의 메쏘드호출이가능 --</li>
-	<li></li>
+	<li>${title.substring(4,7)}</li>
+	<li>${name.toLowerCase()}</li>
+	<li>${name.toUpperCase()}</li>
+	<li>${user.getUserId()}</li>
+	<li>${user.toString()}</li>
+	<li>${user.isMatchPassword('1111')}</li>
 	
 	<li>-- 표준 EL안에서는  static method호출 가능(객체생성없이호출가능한메쏘드)  --</li>
+	<li>${Integer.parseInt('45') + 50 }</li>
+	<li>${Doulble.parseDouble(weight) * 0.6 }</li>
 	
 	<li>-- 표준 EL안에서는  객체생성불가능(생성자호출불가능) --</li>
-	<li>가격: -->앙되요!!!!</li>
-	<li>가격: -->되요!!!!</li>
-	<li>가격: </li>
+	<li>가격: &dollar;{new DecimalFormat('###,###,###').format(price)}-->앙되요!!!!</li>
+	<li>가격: ${NumberFormatter.format(price, '###,###,###') }-->되요!!!!</li>
+	<li>가격: <%=new DecimalFormat("###,###,###.0").format(request.getAttribute("price")) %></li>
 	
 	
 	
